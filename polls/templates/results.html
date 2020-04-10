@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>Vote App</title>
+  </head>
+  <body>
+    <div class="body container">
+      <h1>Results</h1>
+      <div>
+        <p>Reilly: <span> {{ candidate_one_total }} </span> votes</p>
+        <p>Arjun: <span> {{ candidate_two_total }} </span> votes</p>
+        <p>Sullivan: <span> {{ candidate_three_total }} </span> votes</p>
+        <p>Leilani: <span> {{ candidate_four_total }} </span> votes</p>
+      </div>
+    </div>
+  </body>
+  <script src="{% static 'js/main.js' %}"></script>
+</html>

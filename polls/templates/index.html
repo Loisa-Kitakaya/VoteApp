@@ -1,11 +1,79 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>Vote App</title>
   </head>
   <body>
-      <h1>App is working</h1>
+    <div class="body container">
+      <!-- results -->
+      <a href="{% url 'results' %}" class="results_link">view results</a>
+      <!-- candidates -->
+      <div class="candidates">
+        <h1>Candidates</h1>
+
+        <!-- candidates -->
+        <div>
+          <p>Candidate one: <span> {{ candidate_one }} </span></p>
+          <p>Candidate two: <span> {{ candidate_two }} </span></p>
+          <p>Candidate three: <span> {{ candidate_three }} </span></p>
+          <p>Candidate four: <span> {{ candidate_four }} </span></p>
+        </div>
+      </div>
+
+      <!-- vote form -->
+      <form action="" method="POST" class="vote_form form-group jumbotron">
+        {% csrf_token %}
+        <!-- form -->
+        <p>Fill in the form below to vote</p>
+        <input
+          type="text"
+          name="first_name"
+          id="first_name"
+          placeholder="first name"
+          class="form-control"
+          required
+        />
+        <br />
+        <input
+          type="text"
+          name="last_name"
+          id="last_name"
+          placeholder="last name"
+          class="form-control"
+          required
+        />
+        <br />
+        <input
+          type="number"
+          name="voter_id"
+          id="voter_id"
+          placeholder="0"
+          class="form-control"
+          required
+        />
+        <br />
+        <input
+          type="text"
+          name="voter_choice"
+          id="voter_choice"
+          placeholder="candidate of choice"
+          class="form-control"
+          required
+        />
+        <br />
+        <button type="submit" class="btn btn-success">submit</button>
+      </form>
+    </div>
   </body>
+  <script src="{% static 'js/main.js' %}"></script>
 </html>
